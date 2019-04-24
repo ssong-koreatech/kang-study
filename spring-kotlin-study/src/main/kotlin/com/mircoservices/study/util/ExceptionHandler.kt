@@ -1,0 +1,27 @@
+package com.mircoservices.study.util
+
+import com.fasterxml.jackson.core.JsonParseException
+import com.mircoservices.study.data.ErrorResponse
+import com.mircoservices.study.exception.CustomerNotFoundException
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.ControllerAdvice
+import org.springframework.web.bind.annotation.ExceptionHandler
+import java.lang.Exception
+import javax.servlet.http.HttpServletRequest
+
+@ControllerAdvice
+class ExceptionHandler {
+    @ExceptionHandler(JsonParseException::class)
+    fun JsonParseExceptionHandler(servletRequest: HttpServletRequest, exception: Exception) :
+            ResponseEntity<ErrorResponse> {
+        return ResponseEntity(ErrorResponse("JSON Error", exception.message ?: "invalid json"),
+                HttpStatus.BAD_REQUEST)
+    }
+
+    @ExceptionHandler(CustomerNotFoundException::class)
+    fun CustomerNotFoundExceptionHandler(servletRequest: HttpServletRequest, exception: Exception) :
+            ResponseEntity<ErrorResponse> {
+        return ResponseEntity(ErrorResponse("Customer Not Found", exception.message!!), HttpStatus.NOT_FOUND)
+    }
+}

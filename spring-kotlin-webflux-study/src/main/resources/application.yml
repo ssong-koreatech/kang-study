@@ -1,0 +1,10 @@
+spring:
+  jackson:
+    default-property-inclusion: non_null
+
+---
+spring:
+  data:
+    mongodb:
+      uri: "mongodb://localhost:27700"
+      database: "microservices"
