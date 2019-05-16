@@ -3,6 +3,8 @@
 #### kotlin-security-study [스프링 시큐리티 관련 간단하게 진행]
 #### kotlin-webflux-stusy [웹플럭스 관련 공부]
 
+#### 2019.05,16 - 추가적으로, Jenkins / Docker / Kubernetes 공부
+
 ## 코틀린, 스프링부트
 
 ### 2019 코틀린 나이트 컨퍼런스 내용입니다. 배워야 하는 이유랑 내용이 같아서 공유해요~
